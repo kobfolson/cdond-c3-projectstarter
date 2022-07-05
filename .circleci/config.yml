@@ -6,6 +6,9 @@ commands:
     parameters:
       workflow_id:
         type: string
+      when_to_run:
+        type: string
+        default: "on_fail"
     steps:
       - run:
           name: Destroy environments
@@ -166,7 +169,7 @@ jobs:
             - project/.circleci/ansible/inventory.txt
       - destroy-environment:
           workflow_id: "${CIRCLE_WORKFLOW_ID:0:7}"
-          when: on_fail
+          when_to_run: "on_fail"
 
 #   configure-infrastructure:
 #     docker:
