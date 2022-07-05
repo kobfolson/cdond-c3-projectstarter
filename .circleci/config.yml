@@ -6,9 +6,6 @@ commands:
     parameters:
       workflow_id:
         type: string
-      when_to_run:
-        type: string
-        default: "on_fail"
     steps:
       - run:
           name: Destroy environments
@@ -60,7 +57,7 @@ jobs:
             cd frontend
             npm install
             npm run build
-            # exit 1
+            exit 1
       - save_cache:
           paths: [frontend/node_modules]
           key: frontend-build
@@ -78,7 +75,7 @@ jobs:
             cd backend
             npm install
             npm run build
-            # exit 1
+            exit 1
       - save_cache:
           paths: [backend/node_modules]
           key: backend-build
@@ -180,9 +177,8 @@ jobs:
           root: ~/
           paths:
             - .circleci/ansible/inventory.txt
-      - destroy-environment:
-          workflow_id: "${CIRCLE_WORKFLOW_ID:0:7}"
-          when_to_run: "on_fail"
+      # - destroy-environment:
+      #     workflow_id: "${CIRCLE_WORKFLOW_ID:0:7}"
 
 #   configure-infrastructure:
 #     docker:
