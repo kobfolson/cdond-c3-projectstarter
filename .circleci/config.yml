@@ -168,17 +168,17 @@ jobs:
 
   configure-infrastructure:
     docker:
-      - image: cimg/base:2021.04
+      - image: amazon/aws-cli
     steps:
       - checkout
       - add_ssh_keys:
           fingerprints: ["a2:ca:87:1d:09:15:0b:d0:d6:b0:e4:85:80:06:ee:59"]
-      - attach_workspace:
-          at: ~/project
       - run:
           name: Install dependencies
           command: |
-            apt update & apt install -y gzip ansible tar
+            yum -y install gzip ansible tar
+      - attach_workspace:
+          at: ~/project
       - run:
           name: Configure server
           command: |
