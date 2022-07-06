@@ -170,6 +170,7 @@ jobs:
     docker:
       - image: cimg/python:3.10.5
     steps:
+      - checkout
       - add_ssh_keys:
           fingerprints: ["a2:ca:87:1d:09:15:0b:d0:d6:b0:e4:85:80:06:ee:59"]
       - attach_workspace:
@@ -177,7 +178,7 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            pip install ansible
+            apt install -y gzip tar ansible
       - run:
           name: Configure server
           command: |
