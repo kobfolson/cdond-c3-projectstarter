@@ -168,7 +168,7 @@ jobs:
 
   configure-infrastructure:
     docker:
-      - image: cimg/python:3.10.5
+      - image: cimg/base:2021.04
     steps:
       - checkout
       - add_ssh_keys:
@@ -178,7 +178,7 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            pip install gzip ansible tar
+            apt update & apt install -y gzip ansible tar
       - run:
           name: Configure server
           command: |
