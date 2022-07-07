@@ -2,6 +2,7 @@
 - name: "create backend-app dir."
   file:
     path: ~/backend-app
+    state: directory
 
 - name: "cp backend from project to backend-app."
   unarchive:
