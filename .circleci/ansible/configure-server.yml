@@ -25,43 +25,17 @@
       blockinfile:
         path: /home/ubuntu/.bashrc
         block: |
-          export {{ item.key }}={{ item.value }}
-      loop:
-        - { key: NODE_ENV, value: "production" }
-        - { key: VERSION, value: 1 }
-        - { key: TYPEORM_HOST, value: "{{ lookup('env', 'TYPEORM_HOST')}}" }
-        - { key: TYPEORM_PORT, value: 5432 }
-        - {
-            key: TYPEORM_CONNECTION,
-            value: "{{ lookup('env', 'TYPEORM_CONNECTION')}}",
-          }
-        - {
-            key: TYPEORM_ENTITIES,
-            value: "{{ lookup('env', 'TYPEORM_ENTITIES')}}",
-          }
-        - {
-            key: TYPEORM_USERNAME,
-            value: "{{ lookup('env', 'TYPEORM_USERNAME')}}",
-          }
-        - {
-            key: TYPEORM_PASSWORD,
-            value: "{{ lookup('env', 'TYPEORM_PASSWORD')}}",
-          }
-        - {
-            key: TYPEORM_DATABASE,
-            value: "{{ lookup('env', 'TYPEORM_DATABASE')}}",
-          }
-        - {
-            key: TYPEORM_MIGRATIONS,
-            value: "{{ lookup('env', 'TYPEORM_MIGRATIONS')}}",
-          }
-        - {
-            key: TYPEORM_MIGRATIONS_DIR,
-            value: "{{ lookup('env', 'TYPEORM_MIGRATIONS_DIR')}}",
-          }
-
-    - name: cat .bashrc
-      shell: cat ~/.bashrc
+          export NODE_ENV="production" 
+          export VERSION=1
+          export TYPEORM_HOST="{{ lookup('env', 'TYPEORM_HOST')}}"
+          export TYPEORM_PORT=5432 
+          export TYPEORM_CONNECTION="{{ lookup('env', 'TYPEORM_CONNECTION')}}"
+          export TYPEORM_ENTITIES="{{ lookup('env', 'TYPEORM_ENTITIES')}}"
+          export TYPEORM_USERNAME="{{ lookup('env', 'TYPEORM_USERNAME')}}"
+          export TYPEORM_PASSWORD="{{ lookup('env', 'TYPEORM_PASSWORD')}}"
+          export TYPEORM_DATABASE="{{ lookup('env', 'TYPEORM_DATABASE')}}"
+          export TYPEORM_MIGRATIONS="{{ lookup('env', 'TYPEORM_MIGRATIONS')}}"
+          export TYPEORM_MIGRATIONS_DIR="{{ lookup('env', 'TYPEORM_MIGRATIONS_DIR')}}"
 
   roles:
     - configure-server
