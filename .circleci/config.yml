@@ -223,10 +223,10 @@ jobs:
           name: Install dependencies
           command: |
             pip3 install awscli
-            apk add --update curl
-            apk add --update tar 
-            apk add --update gzip 
-            apk add --update nodejs npm
+            apk add curl
+            apk add tar 
+            apk add gzip 
+            apk add nodejs npm
       - run:
           name: Get backend url
           command: |
@@ -263,11 +263,11 @@ jobs:
           name: Install dependencies
           command: |
             pip3 install awscli
-            apk add --update ansible
-            apk add --update tar 
-            apk add --update gzip 
+            apk add ansible
+            apk add tar 
+            apk add gzip 
             apk add --udapte curl
-            apk add --update nodejs npm
+            apk add nodejs npm
       - run:
           name: Deploy backend
           command: |
@@ -293,8 +293,8 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            apk add --update curl
-            apk add --update nodejs npm 
+            apk add curl
+            apk add nodejs npm 
             pip3 install awscli
       - run:
           name: Get backend url
