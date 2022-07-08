@@ -23,8 +23,7 @@
   tasks:
     - name: customize .bashrc
       blockinfile:
-        path: ~/.bashrc
-        state: present
+        path: /home/ubuntu/.bashrc
         block: |
           export {{ item.key }}={{ item.value }}
       loop:
@@ -60,6 +59,9 @@
             key: TYPEORM_MIGRATIONS_DIR,
             value: "{{ lookup('env', 'TYPEORM_MIGRATIONS_DIR')}}",
           }
+
+    - name: cat .bashrc
+      shell: cat ~/.bashrc
 
   roles:
     - configure-server
