@@ -271,6 +271,17 @@ jobs:
       - run:
           name: Deploy backend
           command: |
+            export $VERSION
+            export $NODE_ENV
+            export $TYPEORM_CONNECTION
+            export $TYPEORM_MIGRATIONS_DIR
+            export $TYPEORM_ENTITIES
+            export $TYPEORM_MIGRATIONS
+            export $TYPEORM_HOST
+            export $TYPEORM_PORT=5532
+            export $TYPEORM_USERNAME
+            export $TYPEORM_PASSWORD
+            export $TYPEORM_DATABASE
             cd backend
             npm install
             npm run build
