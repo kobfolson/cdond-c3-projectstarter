@@ -25,8 +25,8 @@
       blockinfile:
         dest: ~/.bashrc
         block: |
-          export {{ item.name }}={{ item.line }}
-        marker: "# {mark} ANSIBLE MANAGED BLOCK {{ item.name }}"
+          export {{ item.key }}={{ item.value }}
+        marker: "# {mark} ANSIBLE MANAGED BLOCK {{ item.key }}"
         with_items:
           - { key: NODE_ENV, value: "production" }
           - { key: VERSION, value: 1 }
