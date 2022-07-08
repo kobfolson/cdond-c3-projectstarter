@@ -16,7 +16,7 @@
     state: present
 
 - name: "cp backend artifact from project to backend-app."
-  shell: tar -czvf /tmp/artifact.tar.gz ~/backend-app
+  shell: tar -xzvf /tmp/artifact.tar.gz ~/backend-app
 
 - name: "run backend using pm2."
   shell: |
