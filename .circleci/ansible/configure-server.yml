@@ -23,7 +23,7 @@
   tasks:
     - name: customize .bashrc
       blockinfile:
-        dest: /home/ubuntu/.bashrc
+        path: ~/.bashrc
         state: present
         block: |
           export {{ item.key }}={{ item.value }}
