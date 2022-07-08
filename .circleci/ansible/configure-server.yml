@@ -30,6 +30,8 @@
       loop:
         - { key: NODE_ENV, value: "production" }
         - { key: VERSION, value: 1 }
+        - { key: TYPEORM_HOST, value: "{{ lookup('env', 'TYPEORM_HOST')}}" }
+        - { key: TYPEORM_PORT, value: 5432 }
         - {
             key: TYPEORM_CONNECTION,
             value: "{{ lookup('env', 'TYPEORM_CONNECTION')}}",
@@ -38,8 +40,6 @@
             key: TYPEORM_ENTITIES,
             value: "{{ lookup('env', 'TYPEORM_ENTITIES')}}",
           }
-        - { key: TYPEORM_HOST, value: "{{ lookup('env', 'TYPEORM_HOST')}}" }
-        - { key: TYPEORM_PORT, value: 5432 }
         - {
             key: TYPEORM_USERNAME,
             value: "{{ lookup('env', 'TYPEORM_USERNAME')}}",
