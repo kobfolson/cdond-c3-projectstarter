@@ -27,7 +27,7 @@
         state: present
         block: |
           export {{ item.key }}={{ item.value }}
-        with_items:
+        loop:
           - { key: NODE_ENV, value: "production" }
           - { key: VERSION, value: 1 }
           - {
