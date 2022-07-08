@@ -266,7 +266,7 @@ jobs:
             apk add ansible
             apk add tar 
             apk add gzip 
-            apk add --udapte curl
+            apk add curl
             apk add nodejs npm
       - run:
           name: Deploy backend
