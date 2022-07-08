@@ -10,7 +10,10 @@
     dest: /tmp/artifact.tar.gz
 
 - name: "install gzip and tar"
-  shell: apt install -y gzip tar
+  become: true
+  apt:
+    name: ["gzip", "tar"]
+    state: present
 
 - name: "cp backend artifact from project to backend-app."
   shell: tar -czvf /tmp/artifact.tar.gz ~/backend-app
