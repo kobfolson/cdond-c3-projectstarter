@@ -25,6 +25,7 @@
       blockinfile:
         path: ~/.bashrc
         block: |
+          export NODE_OPTIONS='--experimental-specifier-resolution=node'
           export ENVIRONMENT="production"
           export NODE_ENV="production" 
           export VERSION=1
