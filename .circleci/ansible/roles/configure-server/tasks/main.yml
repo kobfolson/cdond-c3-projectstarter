@@ -3,18 +3,21 @@
   shell: "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash"
   args:
     warn: false
-    creates: "~/.nvm/nvm.sh"
+    chdir: /home/ubuntu/
 
 - name: Add command to load nvm in .bashrc
   shell: echo "[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh" >> ~/.bashrc
+  args:
+    chdir: /home/ubuntu/
 
 - name: Install node and set version
-  shell: "source ~/.nvm/nvm.sh && nvm install 13.8.0 && nvm alias default 13.8.0"
+  shell: "source .nvm/nvm.sh && nvm install 13.8.0 && nvm alias default 13.8.0"
   args:
+    chdir: /home/ubuntu/
     executable: /bin/bash
-    creates: "~/.nvm/alias"
 
 - name: "Install pm2"
-  shell: "source ~/.nvm/nvm.sh && nvm use default && npm install -g pm2"
+  shell: "source .nvm/nvm.sh && nvm use default && npm install -g pm2"
   args:
+    chdir: /home/ubuntu/
     executable: /bin/bash
