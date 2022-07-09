@@ -36,7 +36,7 @@ commands:
 jobs:
   build-frontend:
     docker:
-      - image: ci/node:14.19.2
+      - image: circleci/node:14.19.2
     steps:
       - checkout
       - restore_cache:
@@ -53,7 +53,7 @@ jobs:
 
   build-backend:
     docker:
-      - image: ci/node:14.19.2
+      - image: circleci/node:14.19.2
     steps:
       - checkout
       - restore_cache:
@@ -70,7 +70,7 @@ jobs:
 
   test-frontend:
     docker:
-      - image: ci/node:14.19.2
+      - image: circleci/node:14.19.2
     steps:
       - checkout
       - restore_cache:
@@ -84,7 +84,7 @@ jobs:
 
   test-backend:
     docker:
-      - image: ci/node:14.19.2
+      - image: circleci/node:14.19.2
     steps:
       - checkout
       - restore_cache:
@@ -98,7 +98,7 @@ jobs:
 
   scan-frontend:
     docker:
-      - image: ci/node:14.19.2
+      - image: circleci/node:14.19.2
     steps:
       - checkout
       - restore_cache:
@@ -113,7 +113,7 @@ jobs:
 
   scan-backend:
     docker:
-      - image: ci/node:14.19.2
+      - image: circleci/node:14.19.2
     steps:
       - checkout
       - restore_cache:
