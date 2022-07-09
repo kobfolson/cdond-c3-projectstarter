@@ -2,9 +2,6 @@
 - name: "configuration play."
   hosts: web
   user: ubuntu
-  # become: true
-  # become_method: sudo
-  # become_user: root
   gather_facts: false
   vars:
     - ansible_python_interpreter: /usr/bin/python3
@@ -21,16 +18,15 @@
       changed_when: false
 
   tasks:
-    - name: customize .bashrc
+    - name: set environment variables
       blockinfile:
-        path: ~/.bashrc
+        path: ~/.bashrc_profile
         block: |
-          # export NODE_OPTIONS='--experimental-specifier-resolution=node'
           export ENVIRONMENT="production"
           export NODE_ENV="production" 
           export VERSION=1
           export TYPEORM_HOST="{{ lookup('env', 'TYPEORM_HOST')}}"
-          export TYPEORM_PORT=5432 
+          export TYPEORM_PORT="{{ lookup('env', 'TYPEORM_PORT')}}" 
           export TYPEORM_CONNECTION="{{ lookup('env', 'TYPEORM_CONNECTION')}}"
           export TYPEORM_ENTITIES="{{ lookup('env', 'TYPEORM_ENTITIES')}}"
           export TYPEORM_USERNAME="{{ lookup('env', 'TYPEORM_USERNAME')}}"
