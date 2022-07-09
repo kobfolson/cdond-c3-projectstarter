@@ -19,7 +19,6 @@
   shell: tar -xzvf /tmp/artifact.tar.gz -C ~/backend-app
 
 - name: "run backend using pm2."
-  become: true
   shell: "source ~/.nvm/nvm.sh && pm2 start dist/main.js"
   args:
     chdir: /home/ubuntu/backend-app
