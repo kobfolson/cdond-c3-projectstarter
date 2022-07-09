@@ -8,7 +8,7 @@
   shell: echo "[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh" >> ~/.bashrc
 
 - name: Install node and set version
-  shell: "source ~/.nvm/nvm.sh && nvm install 16.8.0 && nvm alias default 16.8.0"
+  shell: "source ~/.nvm/nvm.sh && nvm install 13.8.0 && nvm alias default 13.8.0"
   args:
     executable: /bin/bash
 
