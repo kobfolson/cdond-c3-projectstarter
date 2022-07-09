@@ -7,7 +7,7 @@
 - name: Install node and set version
   become: true
   become_user: root
-  shell: "source ~/.nvm/nvm.sh && nvm install 13.18.0 && nvm alias default 13.18.0"
+  shell: "source ~/.nvm/nvm.sh && nvm install 13.6.0 && nvm alias default 13.6.0"
   args:
     executable: /bin/bash
     creates: "~/.nvm/alias"
