@@ -16,6 +16,6 @@
 - name: "Install pm2"
   become: true
   become_user: root
-  shell: "nvm use default && npm install -g pm2"
+  shell: "source ~/.nvm/nvm.sh && nvm use default && npm install -g pm2"
   args:
     executable: /bin/bash
