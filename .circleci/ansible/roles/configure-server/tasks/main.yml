@@ -17,3 +17,5 @@
   become: true
   become_user: root
   shell: "nvm use default && npm install -g pm2"
+  args:
+    executable: /bin/bash
