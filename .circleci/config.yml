@@ -269,15 +269,9 @@ jobs:
             apk add tar 
             apk add gzip 
             apk add curl
-            apk add nodejs npm
-            node --version
       - run:
           name: Deploy backend
           command: |
-            cd backend
-            npm install
-            npm run build
-            cd ..
             tar -C backend -czvf artifact.tar.gz .
             cd .circleci/ansible
             echo "Contents  of the inventory.txt file is -------"
