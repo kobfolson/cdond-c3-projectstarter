@@ -23,7 +23,6 @@
     source ~/.nvm/nvm.sh
     npm install
     npm run build
-    pm2 start dist/main.js
   args:
     chdir: ~/backend-app
     executable: /bin/bash
