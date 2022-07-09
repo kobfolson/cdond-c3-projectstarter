@@ -21,6 +21,7 @@
     - name: "create .bash_profile"
       file:
         path: ~/.bash_profile
+        state: touch
 
     - name: set environment variables
       blockinfile:
