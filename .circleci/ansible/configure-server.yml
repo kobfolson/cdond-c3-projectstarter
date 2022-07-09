@@ -18,9 +18,9 @@
       changed_when: false
 
   tasks:
-    # - name: "create backend-app dir."
-    #   file:
-    #     path: ~/.bash_profile
+    - name: "create .bash_profile"
+      file:
+        path: ~/.bash_profile
 
     - name: set environment variables
       blockinfile:
