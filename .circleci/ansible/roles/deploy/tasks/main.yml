@@ -19,7 +19,7 @@
   shell: tar -xzvf /tmp/artifact.tar.gz -C ~/backend-app
 
 - name: "run backend using pm2."
-  shell: "source ~/.nvm/nvm.sh && pm2 start dist/main.js"
+  shell: source ~/.nvm/nvm.sh && pm2 start npm -- "start:prod"
   args:
     chdir: ~/backend-app
     executable: /bin/bash
