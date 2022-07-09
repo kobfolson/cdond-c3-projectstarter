@@ -23,4 +23,4 @@
   shell: |
     cd ~/backend-app
     npm install 
-    pm2 start dist/main.js
+    pm2 start npm -- start
