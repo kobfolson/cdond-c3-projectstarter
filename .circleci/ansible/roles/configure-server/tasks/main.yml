@@ -2,6 +2,7 @@
 - name: Install nvm
   shell: "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash"
   args:
+    warn: false
     creates: "~/.nvm/nvm.sh"
 
 - name: Install node and set version
@@ -14,4 +15,5 @@
 
 - name: "Install pm2"
   become: true
+  become_user: root
   shell: "nvm use default && npm install -g pm2"

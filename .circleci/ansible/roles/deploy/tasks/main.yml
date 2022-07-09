@@ -20,7 +20,9 @@
 
 - name: "run backend using pm2."
   become: true
-  shell: |
-    cd ~/backend-app
+  become_user: root
+  shell: >
     npm install 
-    pm2 start npm -- start
+    pm2 start dist/main.js
+  args:
+    chdir: ~/backend-app
