@@ -12,7 +12,7 @@
     "start:dev": "nodemon",
     "start:debug": "nodemon --config nodemon-debug.json",
     "prestart:prod": "rimraf dist && tsc",
-    "start:prod": "node --experimental-modules dist/main.js",
+    "start:prod": "node dist/main.js",
     "start:hmr": "node dist/server",
     "lint": "tslint -p tsconfig.json -c tslint.json --fix",
     "test": "jest --runInBand",
@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@hapi/joi": "^17.1.1",
-    "@nestjs/common": "^7.0.0",
+    "@nestjs/common": "^6.11.11",
     "@nestjs/core": "^6.11.11",
     "@nestjs/cqrs": "^6.1.0",
     "@nestjs/jwt": "^6.0.0",
@@ -85,7 +85,7 @@
     "ts-node": "^7.0.1",
     "tsconfig-paths": "^3.9.0",
     "tslint": "5.11.0",
-    "typescript": "^3.8.3",
+    "typescript": "^3.9.3",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
     "webpack-node-externals": "^1.7.2"
