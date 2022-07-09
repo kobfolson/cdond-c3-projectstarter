@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "es2015",
+    "module": "node12",
     "declaration": true,
     "noImplicitAny": false,
     "removeComments": true,
@@ -8,7 +8,7 @@
     "allowSyntheticDefaultImports": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
+    "moduleResolution": "node12",
     "target": "es6",
     "sourceMap": true,
     "outDir": "./dist",
