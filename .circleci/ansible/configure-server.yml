@@ -21,6 +21,7 @@
     - name: set environment variables
       blockinfile:
         path: ~/.bashrc_profile
+        state: present
         block: |
           export ENVIRONMENT="production"
           export NODE_ENV="production" 
