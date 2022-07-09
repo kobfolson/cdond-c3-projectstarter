@@ -1,15 +1,16 @@
 ---
-- name: "upgrade packages."
-  become: true
-  apt:
-    upgrade: "yes"
+- name: Install nvm
+  shell: "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash"
+  args:
+    creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"
 
-- name: "install dependencies."
+- name: Install node and set version
   become: true
-  apt:
-    name: ["nodejs", "npm"]
-    state: latest
-    update_cache: yes
+  become_user: root
+  shell: "source ~/.nvm/nvm.sh && nvm install 14.19.2 && nvm alias default 14.19.2"
+  args:
+    executable: /bin/bash
+    creates: "{{ ansible_env.HOME }}/.nvm/alias"
 
 - name: "install pm2"
   become: true
