@@ -22,5 +22,5 @@
   become: true
   shell: "source ~/.nvm/nvm.sh && pm2 start dist/main.js"
   args:
-    chdir: ~/backend-app
+    chdir: /home/ubuntu/backend-app
     executable: /bin/bash
