@@ -18,10 +18,13 @@
       changed_when: false
 
   tasks:
+    # - name: "create backend-app dir."
+    #   file:
+    #     path: ~/.bash_profile
+
     - name: set environment variables
       blockinfile:
-        path: ~/.bashrc_profile
-        state: present
+        path: ~/.bash_profile
         block: |
           export ENVIRONMENT="production"
           export NODE_ENV="production" 
