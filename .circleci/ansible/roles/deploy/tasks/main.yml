@@ -20,7 +20,6 @@
 
 - name: "run backend using pm2."
   become: true
-  become_user: root
   shell: "source ~/.nvm/nvm.sh && pm2 start dist/main.js"
   args:
     chdir: ~/backend-app
