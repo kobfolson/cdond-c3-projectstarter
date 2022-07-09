@@ -7,15 +7,11 @@
 - name: Install node and set version
   become: true
   become_user: root
-  shell: "source ~/.nvm/nvm.sh && nvm install 13.6.0 && nvm alias default 13.6.0"
+  shell: "source ~/.nvm/nvm.sh && nvm install 13.8.0 && nvm alias default 13.8.0"
   args:
     executable: /bin/bash
     creates: "~/.nvm/alias"
 
 - name: "Install pm2"
   become: true
-  npm:
-    name: pm2
-    global: yes
-    production: yes
-    state: present
+  shell: "npm install -g pm2"
