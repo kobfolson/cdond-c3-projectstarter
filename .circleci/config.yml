@@ -187,6 +187,9 @@ jobs:
             cat .circleci/ansible/inventory.txt
             cd .circleci/ansible
             ansible-playbook -i inventory.txt configure-server.yml
+      - run:
+          name: Configure Prometheus
+          command: ansible-playbook -i inventory.txt configure-prometheus.yml
       - destroy-environment:
           workflow_id: "${CIRCLE_WORKFLOW_ID:0:7}"
 
