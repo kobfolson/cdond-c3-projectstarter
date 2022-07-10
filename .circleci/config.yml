@@ -269,11 +269,12 @@ jobs:
             apk add tar 
             apk add gzip 
             apk add curl
+            apk add nodejs npm
       - run:
           name: Deploy backend
           command: |
             cd backend
-            npm i
+            npm install
             npm run build
             cd ..
             tar -C backend -czvf artifact.tar.gz .
