@@ -1,0 +1,27 @@
+---
+- name: "create backend-app dir."
+  file:
+    path: ~/backend-app
+    state: directory
+
+- name: "cp backend artifact from project to backend-app."
+  copy:
+    src: /root/project/artifact.tar.gz
+    dest: /tmp/artifact.tar.gz
+
+- name: "install gzip and tar"
+  become: true
+  apt:
+    name: ["gzip", "tar"]
+    state: present
+
+- name: "cp backend artifact from project to backend-app."
+  shell: tar -xzvf /tmp/artifact.tar.gz -C ~/backend-app
+
+- name: "run backend using pm2."
+  shell: |
+    source ~/.nvm/nvm.sh
+    pm2 start main.js
+  args:
+    chdir: ~/backend-app/dist
+    executable: /bin/bash
