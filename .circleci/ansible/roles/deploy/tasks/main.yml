@@ -18,15 +18,6 @@
 - name: "cp backend artifact from project to backend-app."
   shell: tar -xzvf /tmp/artifact.tar.gz -C ~/backend-app
 
-- name: "build backend project."
-  shell: |
-    source ~/.nvm/nvm.sh
-    npm install
-    npm run build
-  args:
-    chdir: ~/backend-app
-    executable: /bin/bash
-
 - name: "run backend using pm2."
   shell: |
     source ~/.nvm/nvm.sh
