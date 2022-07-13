@@ -13,8 +13,8 @@
     - VERSION: 1
     - TYPEORM_CONNECTION: "{{ lookup('env', 'TYPEORM_CONNECTION')}}"
     - TYPEORM_ENTITIES: "{{ lookup('env', 'TYPEORM_ENTITIES')}}"
-    - TYPEORM_HOST: 5432
-    - TYPEORM_PORT: "{{ lookup('env', 'TYPEORM_PORT')}}"
+    - TYPEORM_HOST: "{{ lookup('env', 'TYPEORM_HOST')}}"
+    - TYPEORM_PORT: 5432
     - TYPEORM_USERNAME: "{{ lookup('env', 'TYPEORM_USERNAME')}}"
     - TYPEORM_PASSWORD: "{{ lookup('env', 'TYPEORM_PASSWORD')}}"
     - TYPEORM_DATABASE: "{{ lookup('env', 'TYPEORM_DATABASE')}}"
@@ -29,24 +29,6 @@
       become: true
       raw: test -e /usr/bin/python3 || (apt -y update && apt install -y python3)
       changed_when: false
-
-  tasks:
-    - name: set environment variables
-      blockinfile:
-        path: ~/.bashrc
-        block: |
-          export ENVIRONMENT="production"
-          export NODE_ENV="production" 
-          export VERSION=1
-          export TYPEORM_HOST="{{ lookup('env', 'TYPEORM_HOST')}}"
-          export TYPEORM_PORT=5432 
-          export TYPEORM_CONNECTION="{{ lookup('env', 'TYPEORM_CONNECTION')}}"
-          export TYPEORM_ENTITIES="{{ lookup('env', 'TYPEORM_ENTITIES')}}"
-          export TYPEORM_USERNAME="{{ lookup('env', 'TYPEORM_USERNAME')}}"
-          export TYPEORM_PASSWORD="{{ lookup('env', 'TYPEORM_PASSWORD')}}"
-          export TYPEORM_DATABASE="{{ lookup('env', 'TYPEORM_DATABASE')}}"
-          export TYPEORM_MIGRATIONS="{{ lookup('env', 'TYPEORM_MIGRATIONS')}}"
-          export TYPEORM_MIGRATIONS_DIR="{{ lookup('env', 'TYPEORM_MIGRATIONS_DIR')}}"
 
   roles:
     - configure-server
