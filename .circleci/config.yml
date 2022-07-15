@@ -383,9 +383,9 @@ jobs:
     steps:
       - checkout
       - run:
-        name: Install packages
-        command: |
-          yum -y install tar gzip
+          name: Install packages
+          command: |
+            yum -y install tar gzip
       - attach_workspace:
           at: ~/
       - run:
