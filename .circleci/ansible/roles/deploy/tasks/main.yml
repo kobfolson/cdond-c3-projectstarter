@@ -23,5 +23,5 @@
     source ~/.nvm/nvm.sh
     pm2 start npm -- start
   args:
-    chdir: ~/backend-app/backend
+    chdir: ~/backend-app
     executable: /bin/bash
