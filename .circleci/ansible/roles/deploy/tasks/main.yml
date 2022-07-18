@@ -4,28 +4,24 @@
     path: ~/backend-app
     state: directory
 
-- name: "Unarchive backend files"
-  unarchive:
-    src: artifact.tar.gz
-    dest: ~/backend-app
+- name: "cp backend artifact from project to backend-app."
+  copy:
+    src: /root/project/artifact.tar.gz
+    dest: /tmp/artifact.tar.gz
 
-- name: "Installing Node Dependencies"
+- name: "install gzip and tar"
+  become: true
+  apt:
+    name: ["gzip", "tar"]
+    state: present
+
+- name: "cp backend artifact from project to backend-app."
+  shell: tar -xzvf /tmp/artifact.tar.gz -C ~/backend-app
+
+- name: "run backend using pm2."
   shell: |
-    cd ~/backend-app
-    npm i
-
-- name: "Executing Node app with PM2"
-  shell: |
-    cd ~/backend-app/dist
-    pm2 stop default
-    pm2 start main.js
-  register: execute_node
-
-- name: print message
-  debug:
-    msg: "{{ execute_node.stdout_lines }}"
-
-- name: "Configure pm2 to start as service"
-  shell: |
-    sudo su -c "env PATH=$PATH:/usr/local/bin pm2 startup systemd -u ubuntu --hp /home/ubuntu"
-    pm2 save
+    source ~/.nvm/nvm.sh
+    pm2 start npm -- start
+  args:
+    chdir: ~/backend-app
+    executable: /bin/bash
