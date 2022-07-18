@@ -12,6 +12,14 @@
 - name: "run backend using pm2."
   shell: |
     source ~/.nvm/nvm.sh
+    npm install
+  args:
+    chdir: ~/backend-app
+    executable: /bin/bash
+
+- name: "run backend using pm2."
+  shell: |
+    source ~/.nvm/nvm.sh
     pm2 start main.js
   args:
     chdir: ~/backend-app/dist
