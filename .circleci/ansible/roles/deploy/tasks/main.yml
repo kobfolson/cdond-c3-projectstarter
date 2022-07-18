@@ -4,19 +4,10 @@
     path: ~/backend-app
     state: directory
 
-- name: "cp backend artifact from project to backend-app."
-  copy:
-    src: /root/project/artifact.tar.gz
-    dest: /tmp/artifact.tar.gz
-
-- name: "install gzip and tar"
-  become: true
-  apt:
-    name: ["gzip", "tar"]
-    state: present
-
-- name: "cp backend artifact from project to backend-app."
-  shell: tar -xzvf /tmp/artifact.tar.gz -C ~/backend-app
+- name: "Unarchive backend files"
+  unarchive:
+    src: artifact.tar.gz
+    dest: ~/backend-app
 
 - name: "run backend using pm2."
   shell: |
