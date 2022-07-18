@@ -356,20 +356,22 @@ jobs:
               --output text)
             export API_URL="http://${BACKEND_IP}:3030"
             echo "${API_URL}"
-            if curl "${API_URL}/api/status" | grep "ok"; then
-                return 0
+            if curl "${API_URL}/api/status" | grep "ok"
+            then
+                exit 0
             else
-                return 1
+                exit 1
             fi
       - run:
           name: Frontend smoke test.
           command: |
             URL="http://udapeople-${CIRCLE_WORKFLOW_ID:0:7}.s3-website-us-east-1.amazonaws.com"
             echo ${URL}
-            if curl -s ${URL} | grep "Welcome"; then
-              return 0
+            if curl -s ${URL} | grep "Welcome"
+            then
+              exit 0
             else
-              return 1
+              exit 1
             fi
       - destroy-environment:
           workflow_id: "${CIRCLE_WORKFLOW_ID:0:7}"
