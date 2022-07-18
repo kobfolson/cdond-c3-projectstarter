@@ -12,7 +12,7 @@
 - name: "run backend using pm2."
   shell: |
     source ~/.nvm/nvm.sh
-    pm2 start npm -- start
+    pm2 start main.js
   args:
-    chdir: ~/backend-app
+    chdir: ~/backend-app/dist
     executable: /bin/bash
