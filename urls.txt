@@ -2,4 +2,7 @@
 https://github.com/kobfolson/cdond-c3-projectstarter
 
 [URL02]
-http://udapeople-e25dd4b.s3-website-us-east-1.amazonaws.com
+http://udapeople-704e995.s3-website-us-east-1.amazonaws.com
+
+[URL03]
+http://d3tksrrap9y9p3.cloudfront.net
